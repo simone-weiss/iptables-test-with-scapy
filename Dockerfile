@@ -16,9 +16,11 @@ RUN pip install scapy
 
 ADD iptables_test.py /firewall_test/
 ADD iptables_setup.sh /firewall_test/
-USER user
 
 WORKDIR /firewall_test/
-CMD ./iptables_setup.sh
-CMD python3 iptables_test.py
+RUN sudo chmod +x iptables_setup.sh
+USER user
+
+ 
+CMD ./iptables_setup.sh && python3 iptables_test.py
 
