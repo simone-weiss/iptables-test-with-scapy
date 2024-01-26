@@ -10,6 +10,6 @@ SRC_URI = "file://iptables_setup.sh"
 
 do_install () {
     install -dm755 ${D}${base_sbindir}
-    install -Dm644 ${WORKDIR}/iptables_setup.sh ${D}${base_sbindir}
+    install -Dm755 ${WORKDIR}/iptables_setup.sh ${D}${base_sbindir}
 }
 
