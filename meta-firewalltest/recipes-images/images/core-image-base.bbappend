@@ -3,4 +3,6 @@ IMAGE_INSTALL:append = " \
     python3-scapy \
     python3-logging \
     python3-difflib \
+    iptables-test \
+    iptables-config \
 "
