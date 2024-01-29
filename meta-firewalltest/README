@@ -1,8 +1,7 @@
 This README file contains information on the contents of the meta-firewalltest
 and how to Build and run a demo for iptable firewall testing with scapy.
 
-Dependencies
-============
+# Dependencies
 
   URI: https://git.yoctoproject.org/poky/
   branch: nanbield
@@ -10,46 +9,54 @@ Dependencies
   URI: https://git.openembedded.org/meta-openembedded
   branch: nanbield
 
-Build
-=====
+# Build
 
 1. Clone poky and meta-openembedded
+
+```
     git clone -b nanbield git://git.yoctoproject.org/poky
     git clone -b nanbield git://git.openembedded.org/meta-openembedded
+```
 
 2. Ensure you have all dependencies for building poky installed. For a debian
    based distro this would be e.g.:
 
+```
     $ sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential \
       chrpath socat cpio python3 python3-pip python3-pexpect xz-utils \
       debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa \
       libsdl1.2-dev python3-subunit mesa-common-dev zstd liblz4-tool file \
       locales libacl1
     $ sudo locale-gen en_US.UTF-8
+```
 
   Check [0] for other distros/options.
 
 3. Setup build env
 
+```
     $ source poky/oe-init-build-env
     $ bitbake-layers add-layers <path_to>/meta-openembedded/meta-oe
     $ bitbake-layers add-layers <path_to>/meta-openembedded/meta-networking
     $ bitbake-layers add-layers <path_to>/meta-firewalltest
+```
 
 4. Build image
 
+```
     $ bitbake core-image-base
+```
 
 5. run the image in qemu, and login with root
 
+```
     $ runqemu nographic
     ...
 
     qemux86-64 login: root
     root@qemux86-64:~#
+```
 
+# References
 
-
-References
-==========
-[0]: https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html#compatible-linux-distribution
+0: https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html#compatible-linux-distribution
