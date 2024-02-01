@@ -5,4 +5,5 @@ IMAGE_INSTALL:append = " \
     python3-difflib \
     iptables-test \
     iptables-config \
+    tcpdump \
 "
