@@ -47,7 +47,7 @@ and how to Build and run a demo for iptable firewall testing with scapy.
     $ bitbake core-image-base
 ```
 
-5. run the image in qemu, and login with root
+5. Run the image in qemu, and login with root
 
 ```
     $ runqemu nographic
@@ -56,6 +56,20 @@ and how to Build and run a demo for iptable firewall testing with scapy.
     qemux86-64 login: root
     root@qemux86-64:~#
 ```
+
+6. Testcases
+
+Load firewall rules for test with `iptables_setup.sh` in qemu. It loads 3 rules and a default DROP policy.
+
+* Ingress: This is from host to qemu:
+    - Start on qemu: sniff_ingress.py from this folder here
+    - Send from host: send_ingress.py
+    - Observe changes in firewall with iptables-save -c!
+
+* Egress: This is from qemu to host:
+    - Start on host: `sniff_ingress.py` from this folder here
+    - Send from qemu: `send_ingress.py`
+    - Observe changes in firewall with iptables-save -c!
 
 # References
 
